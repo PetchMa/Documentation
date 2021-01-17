@@ -2,9 +2,9 @@
 
 ### Peter Ma | Jan 16 2021
 
-Here are the much needed compute node notes that helps me work with these powerful machines. Absolutely necessary for all the work that I do. Mostly used for managing the processes making sure I don't loose all my work. 
+Here are the much needed compute node notes that helps me work with these powerful machines. Absolutely necessary for all the work that I do. Mostly used for managing the processes making sure I don't lose all my work. 
 
-
+[<<< BACK](directory.html) 
 
 ## Login to Computers VIA SSH Tunnel 🚄
 
@@ -141,6 +141,8 @@ nvidia-smi
 ```
 
 
+
+[<<< BACK](directory.html)
 
 
 

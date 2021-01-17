@@ -18,6 +18,8 @@ Here are a few notable pieces of shortcuts and notes that I had stuffed inside a
 
 
 
+[<<< BACK](../index.html)
+
 
 
 <div style="text-align:right">Made with Typora © 2021 Peter Ma </div>

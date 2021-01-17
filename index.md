@@ -16,3 +16,27 @@ I need to remember more of these shortcuts but until I memorize them, here are i
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="text-align:right">Made with Typora © 2021 Peter Ma </div>
+
+
+
+
+

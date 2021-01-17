@@ -4,11 +4,20 @@
 
 Here are a few notable pieces of shortcuts and notes that I had stuffed inside a notion doc. Hopefully others will find this helpful as well. 
 
-[Compute Node Basics](/blpc.html)
+[Compute Node Basics](blpc.html)
 
-[Singularity Containers](.singularity.html)
+[Singularity Containers](singularity.html)
 
 [ML Training - Freq Thread](ml1.html)
 
 [RAWSPEC Notes](rawspec.html)
 
+
+
+
+
+
+
+
+
+<div style="text-align:right">Made with Typora © 2021 Peter Ma </div>

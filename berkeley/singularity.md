@@ -1,4 +1,4 @@
-# `Singularity` Containers
+# `Singularity` Containers 📦
 
 This note page will be dedicated on how to properly use singularity containers. 
 

@@ -57,6 +57,8 @@ The relative file structure for data ingestion:
 
 The script would be written as such a form: 
 
+**NOTE: Explain the params in detail**
+
 ```{shell}
 #!/bin/bash
 for i in {0..16}
@@ -138,7 +140,9 @@ The folder system looks like the following:
 
 
 
+## RAWHD -Documentation 
 
+make notes on it 
 
 
 

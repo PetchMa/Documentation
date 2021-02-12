@@ -99,12 +99,14 @@ Tunnel to the port.
 
 ```code
 ssh -NL 8888:localhost:8888 pma@blpc0
+ssh -NL 8887:localhost:8888 pma@blpc1
+ssh -NL 8886:localhost:8888 pma@blpc2
 ```
 
 The format is the following 
 
 ```code 
-ssh -NL <port on remote>:localhost:<port on local> pma@<computer name>
+ssh -NL <port on local>:localhost:<port on remote> pma@<computer name>
 
 peternotebook
 ```

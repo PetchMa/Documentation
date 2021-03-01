@@ -246,8 +246,65 @@ This makes the following plots:
 
 <img src="false.png">
 
-# End
+# Extended - Multibeam
 
-Next we will run a machine learning test bench on these results. 
+We can extend this example of a single beam to multiple beams! In the case of multiple beams we can simplify the process. Instead of temporally changing the signals, we can instead spatially change the signal. When spatially changing the signals, the result would be a change in intensity in the frequency domain. Thus we can reuse 90% of the code for single beam in replace for multibeam. 
+
+
+
+# Beam Creation
+
+Lets say we have **64 beams**, we have a single signal that's RFI that shows up on all observations but these observations registers different intensities. Thus we can simulate these different intensities by creating a single RFI and then adding varying intensities scaled by some random number sampled from a gaussian distribution. Here is an example:
+
+```python
+for i in range(total.shape[0]):
+    total[i,:,:] = cadence + base
+    total[i,:,:] =  total[i,:,:] *gauss(100, math.sqrt(50))
+```
+
+Then when we want to add in the SETI signal we can do such easily by just adding it in
+
+```python
+total[0,:,:] =total[0,:,:]  +injection_plate[0:16,:]
+```
+
+The final function you get is:
+
+```python
+def create_true(plate, factor=1):
+    index = int(plate.shape[0]*random())
+    total = np.zeros((64,plate.shape[1],plate.shape[2] ))
+    base = plate[index,:,:]
+    power = math.log(abs(base.max()))/ math.log(abs(np.mean(base)))
+    
+    cadence =  new_cadence(mean = abs(np.mean(base)))**(power)*factor
+    for i in range(total.shape[0]):
+        cadence = cadence *gauss(100, math.sqrt(50))
+        total[i,:,:] = cadence[0:16,:]
+    
+    injection_plate =  new_cadence(mean = abs(np.mean(base)))**(power)*100
+    total[0,:,:] =total[0,:,:] + injection_plate[0:16,:]
+    
+    return total
+```
+
+## False Signals
+
+To create false signals the similar logic is applied:
+
+```python
+def create_false(plate, factor=10):
+    index = int(plate.shape[0]*random())
+    total = np.zeros((64,plate.shape[1],plate.shape[2] ))
+    base = plate[index,:,:]
+    power = math.log(abs(base.max()))/ math.log(abs(np.mean(base)))
+    cadence =  new_cadence(mean = abs(np.mean(base)))**(power)*factor*(random()*10)
+    for i in range(total.shape[0]):
+        cadence = cadence *gauss(100, math.sqrt(50))
+        total[i,:,:] = cadence[0:16,:]
+    return total
+```
+
+
 
 [<<< BACK](directory.html)

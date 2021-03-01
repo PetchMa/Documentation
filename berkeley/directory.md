@@ -12,7 +12,7 @@ Here are a few notable pieces of shortcuts and notes that I had stuffed inside a
 
 [RAWSPEC Notes](rawspec.html)
 
-
+[Cadence Tests](cadence_tests.html)
 
 
 

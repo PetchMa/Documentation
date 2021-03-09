@@ -12,7 +12,7 @@ This page will cover the first attempt at developing a ML Detection pipeline for
 
 However, its a challenge for computers to characterize what signals are similar to each other to actually identify when a signal truly appears in multiple observations. Take the example below.
 
-![alt text](raffy.jpg "Title")
+![alt text](raffy.JPG "Title")
 
 Classical algorithms mislabel these spectrograms because although these spectrograms show signals with S/N > 10 present in the ‘ON’ observations and none in the ‘OFF’ observations it fails to identify which signals are the same signal. If this were to be a more convincing candidate, the C scan shouldn't have drifted in the A scan and the A scan would've looked more like the other A scans. Furthermore, there should be a drift rate on these signals but there isn't. This presents a unique problem for ML algorithms. 
 
@@ -63,7 +63,7 @@ Here's how it works:
 
 We can then train the following architecture. The input is a `[16,256]` tensor. We apply a `[16]` filter depth with kernal of size `3x3` . We continue by maxpooling by a factor of `2` which reduces the dimension by a factor of 2 however the filter increases by a factor of 2. This finally produces a `64` length Filter. 
 
-![alt text](neural.jpg "Title")
+![alt text](neural.JPG "Title")
 
 ## PCA
 

@@ -267,7 +267,26 @@ Non-trainable params: 0
 
 The training parameters used the `Adam` optimizer and the the learning rate was set to `3e-3`. The dataset trained was specifically curated from the original `Naive Model` which made use of the dataset but removed a row of the data. The row contained a bright line which beams throughout a majority of the dataset. Removing that would make the training better and helps it generalize to other observations as well. 
 
+# Disentangled $\beta-$VAE Embedded Clustering
 
+Despite the incredible ability for the neural network to learn these features we want to inherently maximize the neural networks ability to separate the features. We do so by adding an additional loss function called the cross similarity and cross divergence loss function specific to the structure of the cadences we wish to cluster. 
 
+The network works the same as the disentangled VAE above but theres an extra loss function. We describe the following: 
+
+![From Autoencoder to Beta-VAE](embedded.JPG)
+
+We can describe the following: loss function 
+$$
+\mathcal{F}(\theta,\phi,\beta; x,z,z') = \overbrace{\mathbb{E}_{q_\phi(z|x)}[\log p_\theta(x|z)]}^{\text{Binary Crossentropy}} + 
+\overbrace{\beta (D_{KL}(q_\phi(z|x)||p(z))-\epsilon))}^{\text{KL Divergence }} + 
+\overbrace{3\cdot \Lambda_S(z,z')}^{\text{cross similarity}} + \overbrace{\Lambda_{D}(z,z')}^{\text{cross divergence}}
+$$
+We can define the similarity function and the divergence function with the following:
+$$
+\Lambda_S(z,z')= \begin{cases}
+-(z-z')[(z-z')-2], & \text{if } z-z'<1\\
+(z-z')^2, & \text{if } z-z'\geq 1\\
+\end{cases}
+$$
 
 

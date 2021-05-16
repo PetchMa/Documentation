@@ -18,6 +18,8 @@ Here are a few notable pieces of shortcuts and notes that I had stuffed inside a
 
 [ML Approaches](ml_approaches.html)
 
+[ML Parameters](ml_parameters.html)
+
 
 
 [<<< BACK](../index.html)

@@ -271,15 +271,15 @@ The training parameters used the `Adam` optimizer and the the learning rate was 
 
 Despite the incredible ability for the neural network to learn these features we want to inherently maximize the neural networks ability to separate the features. We do so by adding an additional loss function called the cross similarity and cross divergence loss function specific to the structure of the cadences we wish to cluster. 
 
-The network works the same as the disentangled VAE above but theres an extra loss function. We describe the following: 
+The network works the same as the disentangled VAE above but there's an extra loss function. We describe the following: 
 
 ![From Autoencoder to Beta-VAE](embedded.JPG)
 
 We can describe the following: loss function 
 $$
 \mathcal{F}(\theta,\phi,\beta; x,z,z') = \overbrace{\mathbb{E}_{q_\phi(z|x)}[\log p_\theta(x|z)]}^{\text{Binary Crossentropy}} + 
-\overbrace{\beta (D_{KL}(q_\phi(z|x)||p(z))-\epsilon))}^{\text{KL Divergence }} + 
-\overbrace{3\cdot \Lambda_S(z,z')}^{\text{cross similarity}} + \overbrace{\Lambda_{D}(z,z')}^{\text{cross divergence}}
+\underbrace{\overbrace{\beta (D_{KL}(q_\phi(z|x)||p(z))-\epsilon))}^{\text{KL Divergence }} + 
+\overbrace{3\cdot \Lambda_S(z,z')}^{\text{cross similarity}} + \overbrace{\Lambda_{D}(z,z')}^{\text{cross divergence}}}_{\text{disentanglement term}}
 $$
 We can define the similarity function and the divergence function with the following:
 $$
@@ -288,5 +288,11 @@ $$
 (z-z')^2, & \text{if } z-z'\geq 1\\
 \end{cases}
 $$
+We know that this function is shaped parabolic but it is connected to an inverted parabola allowing the values $z-z' \in[0,1]$ are still large and thus it forces the neural network to make these values very close and similar to each other. 
 
+ We can then define the divergence as the following: 
+$$
+\Lambda_D(z,z') = \frac{1}{\log(z-z')}
+$$
+We know that when we minimize the following $\frac{1}{\log(x)}$ then $z-z'$ gets larger. However this is the most difficult to minimize since it decreases the slowest. 
 

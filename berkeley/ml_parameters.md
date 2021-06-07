@@ -30,7 +30,7 @@ These observations contain no SETI signal and contain an injected RFI signal on 
 
 **RFI Injected Positive GBT**
 
-These observations include SETI signal and includes a fake signal we injected, ontop of RFI from GBT data. This looks like the following: 
+These observations include SETI signal and includes a fake signal we injected, on top of RFI from GBT data. This looks like the following: 
 
 ![alt text](images/injected_pos.jpg)
 
